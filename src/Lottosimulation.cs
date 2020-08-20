@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Lottosimulation
 {
@@ -18,10 +16,8 @@ namespace Lottosimulation
             this.lottoauswerter = null;
             this.utils = new Utils();
             this.reset();
-
         }
 
- 
         private void reset()
         {
             Console.Clear();
@@ -30,8 +26,6 @@ namespace Lottosimulation
 
         private void begin()
         {
-
-
             String[] options = new String[]{
                 "Ein neues manuelles Spiel starten",
                 "Ein schnelles Spiel starten",
@@ -44,26 +38,21 @@ namespace Lottosimulation
             if (result == 0)
             {
                 this.runManualGame();
-
-            } else if (result == 1) {
-
+            }
+            else if (result == 1)
+            {
                 this.runFastGame();
-
-            }else if(result == 2) {
-
+            }
+            else if (result == 2)
+            {
                 this.runFastGameUntilWin();
-
-            }else if(result == 2)
+            }
+            else if (result == 2)
             {
                 Console.WriteLine("Bye!");
                 System.Environment.Exit(0);
             }
-
-  
         }
-
-       
-
 
         private void runManualGame()
         {
@@ -72,7 +61,6 @@ namespace Lottosimulation
             this.getSuperNumber();
             this.printZahlenAndAskToContinue();
             this.genNumberAndGetRank();
-      
         }
 
         private void runFastGame()
@@ -85,7 +73,6 @@ namespace Lottosimulation
 
         private void runFastGameUntilWin()
         {
-
             Console.Clear();
 
             int games = 0;
@@ -111,11 +98,8 @@ namespace Lottosimulation
 
                     break;
                 }
-
             }
-
         }
-
 
         private void getLottozahlen()
         {
@@ -123,12 +107,10 @@ namespace Lottosimulation
              * Ask the user to enter 6 unique numbers between/inclduing 0 - 49
              */
 
-            for(int i = 1; i<=6; i++)
+            for (int i = 1; i <= 6; i++)
             {
-
                 while (true)
                 {
-
                     int num = this.utils.askForNumber(String.Format("Bitte geben Sie Ihre {0}. Lottozahl ein", i), 0, 49);
 
                     if (this.currentLottoschein.addNumber((i - 1), num))
@@ -142,30 +124,21 @@ namespace Lottosimulation
                         Console.WriteLine("Zahlen dürfen nicht doppel vorkommen.");
                         Console.WriteLine("");
                     }
-
-
                 }
-
             }
 
             Console.WriteLine("");
-
         }
-
-
 
         private void getSuperNumber()
         {
             int superNumber = this.utils.askForNumber("Bitte geben Sie Ihre Superzahl ein", 0, 9);
             this.currentLottoschein.setSuperNumber(superNumber);
             Console.WriteLine("");
-
         }
-
 
         private void printZahlenAndAskToContinue()
         {
-
             this.currentLottoschein.printNumbers();
 
             String[] options = new String[]{
@@ -175,14 +148,11 @@ namespace Lottosimulation
 
             int result = this.utils.askForNumberOption("Sind Ihre Zahlen korrekt?", options);
 
-            if(result == 1)
+            if (result == 1)
             {
                 this.runManualGame();
             }
-
         }
-
-
 
         private void genNumberAndGetRank()
         {
@@ -192,20 +162,12 @@ namespace Lottosimulation
             this.lottoauswerter.printResult();
         }
 
-
-
         public void run()
         {
-
             while (true)
             {
-
                 begin();
-
             }
-
         }
-
-
     }
 }

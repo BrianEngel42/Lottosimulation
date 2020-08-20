@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Lottosimulation
 {
@@ -16,10 +14,9 @@ namespace Lottosimulation
             this.random = new Random();
         }
 
-
         public void generateWinningNumbers()
         {
-            for(int i = 0; i<5; i++)
+            for (int i = 0; i < 5; i++)
             {
                 this.winningNumbers[i] = this.random.Next(0, 49);
             }
@@ -38,11 +35,11 @@ namespace Lottosimulation
         }
 
         /*
-        * This function prints all numbers of the lottoschein 
+        * This function prints all numbers of the lottoschein
         */
+
         public void printWinningNumbers()
         {
-
             //print the numbers and ask whether to continue or not
 
             Console.Write("Die Gewinnzahlen lauten: ");
@@ -63,15 +60,11 @@ namespace Lottosimulation
                     //add a ', ' if this is not the last element in the array
                     Console.Write(", ");
                 }
-
             }
 
             Console.WriteLine("Die Gewinn Superzahl lautet: " + this.winningSuperNumber);
 
             Console.WriteLine("");
-
         }
-
-
     }
 }

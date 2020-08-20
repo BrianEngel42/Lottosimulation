@@ -1,10 +1,8 @@
-﻿using System;
-
-namespace Lottosimulation
+﻿namespace Lottosimulation
 {
-    class Program
+    internal class Program
     {
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
             Lottosimulation simulation = new Lottosimulation();
             simulation.run();
